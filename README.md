@@ -90,14 +90,12 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
-
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![flixpart2](https://user-images.githubusercontent.com/19617642/45659802-ba2d9400-babb-11e8-8adb-6ebc8a7e1217.gif)
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
