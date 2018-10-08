@@ -39,28 +39,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource,UITableV
         fetchMovies()
     }
     func fetchMovies() {
-        
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            // This will run when the network request returns
-            
-            
-            //parse and got data back
-            if let error =  error {
-                let alertController = UIAlertController(title: "Cannot find movies", message: "The Internet connection appears to be offline", preferredStyle: .alert)
-                let tryAction = UIAlertAction(title: "Try again", style: .default) { (action) in
-                    // handle cancel response here. Doing nothing will dismiss the view.
-                }
-                // add the cancel action to the alertController
-                alertController.addAction(tryAction)
-                self.present(alertController, animated: true) {
-                    // optional code for what happens after the alert controller has finished presenting
-                }
-                self.refreshControl.endRefreshing()
-                print(error.localizedDescription)
-            } else if let data = data {
 
                 let dataDictionary = try! MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
                     if let movies = movies {
@@ -68,9 +46,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource,UITableV
                         self.tableView.reloadData()
                     }
                 }
-                
-                
-                
+  
                 self.activityIndicator.isHidden = true
                 self.tableView.isHidden = false
                 self.activityIndicator.stopAnimating()
@@ -79,13 +55,13 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource,UITableV
                 
                 self.refreshControl.endRefreshing()
                 
-            }
+            
         }
         
-        task.resume()
+    
         
         
-    }
+    
     
     // How many cells?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -125,3 +101,5 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource,UITableV
     
 
 }
+
+

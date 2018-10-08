@@ -20,7 +20,7 @@ class Movie {
         overview = dictionary["overview"] as? String ?? ""
         posterPath = dictionary["poster_path"] as! String
         releaseDate =  dictionary["release_date"] as! String
-        backdropPath = dictionary["backdrop_path"] as! String 
+        backdropPath = dictionary["backdrop_path"] as? String ?? " "
         baseURLString = "https://image.tmdb.org/t/p/w500/"
         //posterUrl = URL(string: baseURLString + posterPath)
     
